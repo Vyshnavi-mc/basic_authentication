@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+<div class="container">
+
+    <h2>SignUp</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{{ message.tags }}">
+                {{ message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+
+        <input type="text" name="email" placeholder="Email" required>
+
+        <input type="text" name="password1" placeholder="Password" required>
+
+        <input type="text" name="password2" placeholder="Confirm Password" required>
+
+        <button type="submit">SignUp</button>
+
+    </form>
+    <p>
+        Already have an acccount?
+        <a href="/login/">Login</a>
+    </p>
+
+
+
+</div>
+
+{% endblock %}
